@@ -1,9 +1,9 @@
 {
-  "name": "rollup-starter-lib",
+  "name": "@z58362026/http-server",
   "version": "1.0.0",
-  "main": "dist/how-long-till-lunch.cjs.js",
-  "module": "dist/how-long-till-lunch.esm.js",
-  "browser": "dist/how-long-till-lunch.umd.js",
+  "main": "dist/main.cjs.js",
+  "module": "dist/main.esm.js",
+  "browser": "dist/main.umd.js",
   "dependencies": {
     "ms": "^2.0.0"
   },
