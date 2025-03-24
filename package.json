@@ -1,6 +1,6 @@
 {
   "name": "@z58362026/http-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/main.cjs.js",
   "description": "http server sdk",
   "module": "dist/main.esm.js",
@@ -26,7 +26,8 @@
     "pretest": "npm run build"
   },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
   "publishConfig": {
     "access": "public"
