@@ -2,8 +2,15 @@
   "name": "@z58362026/http-server",
   "version": "1.0.0",
   "main": "dist/main.cjs.js",
+  "description": "http server sdk",
   "module": "dist/main.esm.js",
   "browser": "dist/main.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/z58362026/http-server.git"
+  },
+  "author": "wangMing@z58362026",
+  "license": "MIT",
   "dependencies": {
     "ms": "^2.0.0"
   },
@@ -20,5 +27,6 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "private": true
 }
