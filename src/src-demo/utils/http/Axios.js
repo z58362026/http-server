@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 import { AxiosCanceler } from './axiosCancel';
-import _ from 'lodash';
+import { cloneDeep, isFunction } from 'lodash-es';
 import { ContentTypeEnum, RequestEnum } from './config';
 import { Loading } from 'element-ui';
 
@@ -49,7 +49,7 @@ export class VAxios {
 
         !ignoreCancel && axiosCanceler.addPending(config);
 
-        if (requestInterceptors && _.isFunction(requestInterceptors)) {
+        if (requestInterceptors && isFunction(requestInterceptors)) {
           config = await requestInterceptors(config, this.options);
         }
         resolve(config);
@@ -58,14 +58,14 @@ export class VAxios {
 
     // 请求拦截器请求错误配置
     requestInterceptorsCatch &&
-      _.isFunction(requestInterceptorsCatch) &&
+      isFunction(requestInterceptorsCatch) &&
       this.axiosInstance.interceptors.request.use(undefined, requestInterceptorsCatch);
 
     // 请求拦截器响应配置
     this.axiosInstance.interceptors.response.use((res) => {
       res && axiosCanceler.removePending(res.config);
       return new Promise(async (resolve) => {
-        if (responseInterceptors && _.isFunction(responseInterceptors)) {
+        if (responseInterceptors && isFunction(responseInterceptors)) {
           res = await responseInterceptors(this.axiosInstance, res);
         }
         resolve(res);
@@ -74,7 +74,7 @@ export class VAxios {
 
     // 请求拦截器响应错误配置
     responseInterceptorsCatch &&
-      _.isFunction(responseInterceptorsCatch) &&
+      isFunction(responseInterceptorsCatch) &&
       this.axiosInstance.interceptors.response.use(undefined, (error) => {
         return responseInterceptorsCatch(this.axiosInstance, error);
       });
@@ -117,7 +117,7 @@ export class VAxios {
   }
 
   async request(config, options) {
-    let conf = _.cloneDeep(config);
+    let conf = cloneDeep(config);
     const transform = this.getTransform();
 
     const { requestOptions } = this.options;
@@ -125,7 +125,7 @@ export class VAxios {
     const opt = Object.assign({}, requestOptions, options);
 
     const { beforeRequestHook, requestCatchHook, transformResponseHook } = transform || {};
-    if (beforeRequestHook && _.isFunction(beforeRequestHook)) {
+    if (beforeRequestHook && isFunction(beforeRequestHook)) {
       conf = await beforeRequestHook(conf, opt);
     }
     conf.requestOptions = opt;
@@ -139,7 +139,7 @@ export class VAxios {
       this.axiosInstance
         .request(conf)
         .then((res) => {
-          if (transformResponseHook && _.isFunction(transformResponseHook)) {
+          if (transformResponseHook && isFunction(transformResponseHook)) {
             try {
               const ret = transformResponseHook(res, opt);
               resolve(ret);
@@ -151,7 +151,7 @@ export class VAxios {
           resolve(res);
         })
         .catch((e) => {
-          if (requestCatchHook && _.isFunction(requestCatchHook)) {
+          if (requestCatchHook && isFunction(requestCatchHook)) {
             reject(requestCatchHook(e, opt));
             return;
           }

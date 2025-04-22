@@ -1,7 +1,7 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-throw-literal */
 import { cloneDeep, isString } from 'lodash-es';
-import { Message } from 'element-ui';
+// import { Message } from 'element-ui';
 import { ContentTypeEnum, RequestEnum, ResultEnum } from './config';
 import { deepMerge, getContentType, joinTimestamp } from './helper';
 import { VAxios } from './Axios';
@@ -44,7 +44,7 @@ export const transform = {
     }
     if (options.isShowErrorMessage) {
       if (options.errorMessageMode === 'message') {
-        Message.error(errorMessageText || message || '操作失败！');
+        // Message.error(errorMessageText || message || '操作失败！');
       }
     }
     throw '请求错误';

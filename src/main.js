@@ -1,2 +1,14 @@
+/*
+ * @Author: wangming ming.wang24@gientech.com
+ * @Date: 2025-03-24 20:49:07
+ * @LastEditors: wangming ming.wang24@gientech.com
+ * @LastEditTime: 2025-04-22 09:43:53
+ * @FilePath: /rollup-starter-lib/src/main.js
+ * @Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+//  */
+import { createAxios, http } from './http';
 
-console.log('%c [  ]-2', 'font-size:13px; background:pink; color:#bf2c9f;', )
+export default {
+    createAxios,
+    http
+};

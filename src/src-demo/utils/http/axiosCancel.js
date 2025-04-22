@@ -1,14 +1,14 @@
 /*
  * @Author: wangming ming.wang24@gientech.com
  * @Date: 2024-11-14 18:43:59
- * @LastEditTime: 2024-11-15 10:06:44
+ * @LastEditTime: 2025-04-22 09:47:58
  * @LastEditors: wangming ming.wang24@gientech.com
  * @FilePath: /modelmagic-ui/src/util/http/axiosCancel.js
  * @Desc: 头部注释配置模板
  * Copyright (c) 2024 by Gientech, All Rights Reserved.
  */
 import axios from 'axios';
-import _ from 'lodash';
+import { isFunction } from 'lodash-es';
 
 let pendingMap = new Map();
 
@@ -37,7 +37,7 @@ export class AxiosCanceler {
    */
   removeAllPending() {
     pendingMap.forEach((cancel) => {
-      cancel && _.isFunction(cancel) && cancel();
+      cancel && isFunction(cancel) && cancel();
     });
     pendingMap.clear();
   }

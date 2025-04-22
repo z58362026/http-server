@@ -1,13 +1,13 @@
 /*
  * @Author: wangming ming.wang24@gientech.com
  * @Date: 2024-11-14 18:43:59
- * @LastEditTime: 2024-11-14 18:58:48
+ * @LastEditTime: 2025-04-22 09:48:38
  * @LastEditors: wangming ming.wang24@gientech.com
  * @FilePath: /modelmagic-ui/src/util/http/helper.ts
  * @Desc: 工具类文件
  * Copyright (c) 2024 by Gientech, All Rights Reserved.
  */
-import { isObject } from 'lodash';
+import { isObject } from 'lodash-es';
 import { ContentTypeEnum } from './config';
 
 export function joinTimestamp(join) {

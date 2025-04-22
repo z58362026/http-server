@@ -2,11 +2,12 @@
 /* eslint-disable no-param-reassign */
 /* eslint-disable no-unused-expressions */
 import axios from 'axios';
-import qs from 'qs';
 import { cloneDeep, isFunction } from 'lodash-es';
-import { Loading } from 'element-ui';
+// import { Loading } from 'element-ui';
 import { AxiosCanceler } from './axiosCancel';
 import { ContentTypeEnum, RequestEnum } from './config';
+// import qs from 'qs';
+const qs = require('qs');
 
 /**
  * @description:  axios module
@@ -140,7 +141,7 @@ export class VAxios {
     conf = this.supportFormData(conf);
     if (opt.isShowLoad) {
       this.loadCount += 1;
-      this.load = Loading.service({});
+      // this.load = Loading.service({});
     }
     return new Promise((resolve, reject) => {
       this.axiosInstance

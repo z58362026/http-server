@@ -1,5 +1,5 @@
 import { ContentTypeEnum, RequestEnum, ResultEnum } from './config';
-import _ from 'lodash';
+import { cloneDeep, isString } from 'lodash-es';
 import { deepMerge } from './helper';
 import { VAxios } from './Axios';
 import { getContentType, joinTimestamp } from './helper';
@@ -64,7 +64,7 @@ export const transform = {
     if (joinPrefix) {
       config.url = `${urlPrefix}${config.url}`;
     }
-    if (apiUrl && _.isString(apiUrl)) {
+    if (apiUrl && isString(apiUrl)) {
       config.url = `${apiUrl}${config.url}`;
     }
     const params = config.params || {};
@@ -130,7 +130,7 @@ export function createAxios(opt = {}, hooks = {}) {
       timeout: 10 * 1000,
       headers: { 'content-type': ContentTypeEnum.JSON },
       // 数据处理方式
-      transform: _.cloneDeep(transform),
+      transform: cloneDeep(transform),
       // 配置项，下面的选项都可以在独立的接口请求中覆盖
       requestOptions: {
         // isPending
