@@ -33,8 +33,7 @@
     "pretest": "npm run build"
   },
   "files": [
-    "dist",
-    "src"
+    "dist"
   ],
   "publishConfig": {
     "access": "public"
