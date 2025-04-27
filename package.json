@@ -1,6 +1,6 @@
 {
   "name": "@z58362026/http-server",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "dist/main.cjs.js",
   "description": "http server sdk",
   "module": "dist/main.esm.js",
@@ -21,9 +21,11 @@
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^11.0.1",
     "@rollup/plugin-node-resolve": "^7.0.0",
+    "axios": "^1.9.0",
     "element-ui": "^2.15.14",
     "lodash-es": "^4.17.21",
     "qs": "^6.14.0",
+    "qs-esm": "^7.0.2",
     "rollup": "^1.29.0"
   },
   "scripts": {
@@ -37,5 +39,13 @@
   ],
   "publishConfig": {
     "access": "public"
+  },
+  "changelog": {
+    "1.0.5": [
+      "支持可选链操作符",
+      "优化CommonJS模块支持",
+      "更新依赖包版本",
+      "修复已知问题"
+    ]
   }
 }

@@ -6,8 +6,8 @@ import { cloneDeep, isFunction } from 'lodash-es';
 // import { Loading } from 'element-ui';
 import { AxiosCanceler } from './axiosCancel';
 import { ContentTypeEnum, RequestEnum } from './config';
-// import qs from 'qs';
-const qs = require('qs');
+import * as qs from 'qs-esm';
+// const qs = require('qs');
 
 /**
  * @description:  axios module

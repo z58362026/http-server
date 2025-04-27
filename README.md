@@ -11,7 +11,7 @@ npm install @z58362026/http-server
 ## 基本使用
 
 ```javascript
-import { http } from '@your-org/http-request';
+import { http } from '@z58362026/http-server';
 
 // 发送 GET 请求
 const getData = async () => {
@@ -36,6 +36,76 @@ const postData = async () => {
   }
 };
 ```
+
+## Storage 使用
+
+### 基本使用
+
+```javascript
+import { storage } from '@z58362026/http-server';
+
+// 设置存储
+storage.set('key', { name: 'test', value: 123 });
+
+// 获取存储
+const data = storage.get('key');
+
+// 删除存储
+storage.remove('key');
+
+// 清空所有存储
+storage.clear();
+```
+
+### 创建自定义存储实例
+
+```javascript
+import { createStorage } from '@z58362026/http-server';
+
+// 创建自定义存储实例
+const customStorage = createStorage({
+  prefixKey: 'custom_', // 存储键前缀
+  storage: localStorage // 或 sessionStorage
+});
+```
+
+### Cookie 操作
+
+```javascript
+import { storage } from '@z58362026/http-server';
+
+// 设置 cookie
+storage.setCookie('name', 'value', 3600); // 3600秒后过期
+
+// 获取 cookie
+const cookieValue = storage.getCookie('name');
+
+// 删除 cookie
+storage.removeCookie('name');
+
+// 清空所有 cookie
+storage.clearCookie();
+```
+
+### Storage 配置选项
+
+| 选项 | 类型 | 默认值 | 说明 |
+|------|------|--------|------|
+| prefixKey | string | '' | 存储键前缀 |
+| storage | Storage | localStorage | 存储类型，可选 localStorage 或 sessionStorage |
+
+### Storage 方法
+
+| 方法 | 参数 | 返回值 | 说明 |
+|------|------|--------|------|
+| set | (key: string, value: any, expire?: number) | void | 设置存储，expire 为过期时间（秒） |
+| get | (key: string, defaultValue?: any) | any | 获取存储，defaultValue 为默认值 |
+| remove | (key: string) | void | 删除存储 |
+| clear | () | void | 清空所有存储 |
+| setCookie | (name: string, value: string, expire?: number) | void | 设置 cookie |
+| getCookie | (name: string) | string | 获取 cookie |
+| removeCookie | (key: string) | void | 删除 cookie |
+| clearCookie | () | void | 清空所有 cookie |
 
 ## 自定义配置
 
@@ -237,3 +307,16 @@ const dataProcessingHttp = createAxios(
 ## License
 
 MIT
+
+
+## 版本更新
+
+### v1.0.5 (2024-04-27)
+- 初始版本发布
+- 基于 Axios 封装的 HTTP 请求库
+- 支持自定义配置和 hooks
+- 提供 Storage 和 Cookie 操作工具
+- 支持可选链操作符
+- 支持 CommonJS 和 ES Module
+- 完整的类型定义和文档支持
+
