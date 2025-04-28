@@ -1,6 +1,6 @@
 {
   "name": "@z58362026/http-server",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "main": "dist/main.cjs.js",
   "description": "http server sdk",
   "module": "dist/main.esm.js",
